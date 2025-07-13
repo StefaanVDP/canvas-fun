@@ -1,0 +1,217 @@
+<div align="center">
+<h1><kbd>🧩 CanvasFun</kbd></h1>
+An extension for MIT App Inventor 2.<br>
+Developed by Stefaan Vandeputte using Fast.
+</div>
+
+## 📝 Specifications
+* **
+📦 **Package:** be.naafets.canvasfun
+💾 **Size:** 28,57 KB
+⚙️ **Version:** 1.0
+📱 **Minimum API Level:** 7
+📅 **Updated On:** [date=2025-07-07 timezone="Europe/Paris"]
+💻 **Built & documented using:** [FAST](https://community.appinventor.mit.edu/t/fast-an-efficient-way-to-build-extensions/129103?u=jewel) <small><mark>v3.4.1</mark></small>
+
+## <kbd>Events:</kbd>
+**CanvasFun** has total 2 events.
+
+### ErrorOccured
+returns the error
+
+| Parameter | Type
+| - | - |
+| error | text
+
+### DebugInfo
+returns debug info
+
+| Parameter | Type
+| - | - |
+| message | text
+
+## <kbd>Methods:</kbd>
+**CanvasFun** has total 10 methods.
+
+### DrawShapes
+DrawShapes
+canvas:add a canvas here
+shape:type of shape
+text:text to display if shapetype = TEXT
+count:number of shapes
+speed:refresh rate
+size:max. size of a shape
+filled:fill the shape
+accelaration:size of movement
+direction:direction of movement
+
+| Parameter | Type
+| - | - |
+| canvas | component
+| shape | Shapes <small><mark>(helper blocks)</mark></small>
+| text | text
+| count | number
+| speed | number
+| size | number
+| filled | boolean
+| acceleration | Acceleration <small><mark>(helper blocks)</mark></small>
+| direction | Directions <small><mark>(helper blocks)</mark></small>
+
+* Enums for **Shapes**: `Circle`, `Square`, `Text`, `Image`, `Pacman`, `Arc`, `Texts`, `Draw`
+* Enums for **Acceleration**: `Slow`, `Medium`, `Fast`
+* Enums for **Directions**: `Up`, `Down`, `Left`, `Right`, `Wobble`, `Random`
+
+### DrawText
+DrawText
+canvas:add a canvas here
+texts:a list of texts
+count:number of shapes
+speed:refresh rate
+size:max. size of a shape
+accelaration:size of movement
+direction:direction of movement
+
+| Parameter | Type
+| - | - |
+| canvas | component
+| texts | list
+| count | number
+| speed | number
+| size | number
+| acceleration | Acceleration <small><mark>(helper blocks)</mark></small>
+| direction | Directions <small><mark>(helper blocks)</mark></small>
+
+* Enums for **Acceleration**: `Slow`, `Medium`, `Fast`
+* Enums for **Directions**: `Up`, `Down`, `Left`, `Right`, `Wobble`, `Random`
+
+### AddCircle
+AddCircle
+xOffset:the relative x of the circle
+yOffset:the relative y of the circle
+relativeSize:the relative size of the circle
+color:thecolor of the circle
+
+* Return type: `list`
+
+| Parameter | Type
+| - | - |
+| xOffset | number
+| yOffset | number
+| relativeSize | number
+| color | number
+
+### DrawComplexShapes2
+DrawComplexShapes
+canvas:add a canvas here
+cShapes:shapes to create
+count:number of shapes
+speed:refresh rate
+size:max. size of a shape
+filled:fill the shape
+accelaration:size of movement
+direction:direction of movement
+
+| Parameter | Type
+| - | - |
+| canvas | component
+| cShapes | list
+| count | number
+| speed | number
+| size | number
+| filled | boolean
+| acceleration | Acceleration <small><mark>(helper blocks)</mark></small>
+| direction | Directions <small><mark>(helper blocks)</mark></small>
+
+* Enums for **Acceleration**: `Slow`, `Medium`, `Fast`
+* Enums for **Directions**: `Up`, `Down`, `Left`, `Right`, `Wobble`, `Random`
+
+### DrawImage
+DrawImage
+canvas:add a canvas here
+texts:a list of texts
+count:number of shapes
+speed:refresh rate
+size:max. size of a shape
+accelaration:size of movement
+direction:direction of movement
+
+| Parameter | Type
+| - | - |
+| canvas | component
+| asset | text
+| count | number
+| speed | number
+| size | number
+| acceleration | Acceleration <small><mark>(helper blocks)</mark></small>
+| direction | Directions <small><mark>(helper blocks)</mark></small>
+
+* Enums for **Acceleration**: `Slow`, `Medium`, `Fast`
+* Enums for **Directions**: `Up`, `Down`, `Left`, `Right`, `Wobble`, `Random`
+
+### DrawArcs
+DrawArcs
+canvas:add a canvas here
+text:text to display if shapetype = TEXT
+count:number of shapes
+speed:refresh rate
+size:max. size of a shape
+filled:fill the shape
+accelaration:size of movement
+direction:direction of movement
+
+| Parameter | Type
+| - | - |
+| canvas | component
+| xExtend | number
+| yExtend | number
+| startAngle | number
+| sweepAngle | number
+| useCenter | boolean
+| count | number
+| speed | number
+| size | number
+| filled | boolean
+| acceleration | Acceleration <small><mark>(helper blocks)</mark></small>
+| direction | Directions <small><mark>(helper blocks)</mark></small>
+
+* Enums for **Acceleration**: `Slow`, `Medium`, `Fast`
+* Enums for **Directions**: `Up`, `Down`, `Left`, `Right`, `Wobble`, `Random`
+
+### DrawComplexShapes
+DrawComplexShapes
+canvas:add a canvas here
+cShapes:shapes to create
+count:number of shapes
+speed:refresh rate
+size:max. size of a shape
+filled:fill the shape
+accelaration:size of movement
+direction:direction of movement
+
+| Parameter | Type
+| - | - |
+| canvas | component
+| cShapes | list
+| count | number
+| speed | number
+| size | number
+| filled | boolean
+| acceleration | Acceleration <small><mark>(helper blocks)</mark></small>
+| direction | Directions <small><mark>(helper blocks)</mark></small>
+
+* Enums for **Acceleration**: `Slow`, `Medium`, `Fast`
+* Enums for **Directions**: `Up`, `Down`, `Left`, `Right`, `Wobble`, `Random`
+
+### StopShapes
+stopShapes: stop creating shapes
+
+### CustomColors
+customColors: use this colors for drawing instead of the default colors
+
+| Parameter | Type
+| - | - |
+| cColors | list
+
+### ClearCustomColors
+customColors: remove the custom colors for drawing
+
