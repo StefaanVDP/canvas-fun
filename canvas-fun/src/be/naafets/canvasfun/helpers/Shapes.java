@@ -23,7 +23,7 @@ public enum Shapes implements OptionList<String> {
 	@Deprecated
 	SubArc("subarc"),
 	@Deprecated
-	RoundRect2("RoundRect2"),
+	RoundRect("RoundRect"),
 	@Deprecated
 	Texts("texts"),
 	@Deprecated

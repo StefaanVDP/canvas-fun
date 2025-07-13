@@ -225,7 +225,7 @@ implements Runnable, Component {
 	}
 
 	@SuppressWarnings("deprecation")
-	@SimpleFunction(description = "AddDoubleRoundRect2\n"
+	@SimpleFunction(description = "AddDoubleRoundRect\n"
 			+ "xOffset: x position relative to the master shape\n"
 			+ "yOffset: y position relative to the master shape\n"
 			+ "relativeSize: relative size\n"
@@ -233,11 +233,11 @@ implements Runnable, Component {
 			+ "sweepAngle: size of th arc in degrees\n"
 			+ "useCenter: uses the center to draw between the edges\n"
 			+ "color: color of the arc")
-	public YailList AddDoubleRoundRect2(double xOffset, double yOffset,  double relativeSize, double outerWidth, double outerHeight, double outerRx, double outerRy, double innerWidth, double innerHeight, double innerRx, double innerRy, double innerxOffset, double inneryOffset, int color) {
+	public YailList AddDoubleRoundRect(double xOffset, double yOffset,  double relativeSize, double outerWidth, double outerHeight, double outerRx, double outerRy, double innerWidth, double innerHeight, double innerRx, double innerRy, double innerxOffset, double inneryOffset, int color) {
 		YailList instruction=null;
 		try {
 		List<Object> tempList = new ArrayList<>();
-			tempList.add(Shapes.RoundRect2);
+			tempList.add(Shapes.RoundRect);
 			tempList.add(xOffset);
 			tempList.add(yOffset);
 			tempList.add(relativeSize);
@@ -255,7 +255,7 @@ implements Runnable, Component {
 			instruction = YailList.makeList(tempList);
 			DebugInfo(instruction.toString());
 		} catch (Exception e) {
-			ErrorOccured("AddDoubleRoundRect2: "+e.getMessage()+"\n"+getStackTrace(e));
+			ErrorOccured("AddDoubleRoundRect: "+e.getMessage()+"\n"+getStackTrace(e));
 		}	
 		return instruction;
 
@@ -440,11 +440,11 @@ implements Runnable, Component {
 					DebugInfo("SUBARC found: "+(double) values[1]+ " "+(double) values[1]+ " "+(double) values[2]+ " "+(double) values[3]+ " "+(double) values[4]+ " "+(double) values[5]);
 					instructions[i-1] = new ArcInstruction();
 					((ArcInstruction) instructions[i-1]).initialize((Shapes)values[0], (double) values[1], (double) values[2], (double) values[3], (double) values[4], (double) values[5], (boolean) values[6], (int)((double) values[7]));					
-				} else if ((((Shapes)values[0]).compareTo(Shapes.RoundRect2)) == 0) {
+				} else if ((((Shapes)values[0]).compareTo(Shapes.RoundRect)) == 0) {
 					initAndroidCanvas();
-					DebugInfo("ROUNDRECT2 found: "+(double) values[1]+ " "+(double) values[1]+ " "+(double) values[2]+ " "+(double) values[3]+ " "+(double) values[4]+ " "+(double) values[5]);
-					instructions[i-1] = new DoubleRectInstruction2();
-					((DoubleRectInstruction2) instructions[i-1]).initialize((Shapes)values[0], (double) values[1], (double) values[2], (double) values[3], (double) values[4], (double) values[5], (double) values[6], (double) values[7], (double) values[8], (double) values[9], (double) values[10], (double) values[11], (double) values[12], (double) values[13], (int)((double) values[14]));					
+					DebugInfo("ROUNDRECT found: "+(double) values[1]+ " "+(double) values[1]+ " "+(double) values[2]+ " "+(double) values[3]+ " "+(double) values[4]+ " "+(double) values[5]);
+					instructions[i-1] = new DoubleRectInstruction();
+					((DoubleRectInstruction) instructions[i-1]).initialize((Shapes)values[0], (double) values[1], (double) values[2], (double) values[3], (double) values[4], (double) values[5], (double) values[6], (double) values[7], (double) values[8], (double) values[9], (double) values[10], (double) values[11], (double) values[12], (double) values[13], (int)((double) values[14]));					
 				} else {
 					instructions[i-1] = new Instruction();
 					instructions[i-1].initialize((Shapes)values[0], (double) values[1], (double) values[2], (double) values[3], (double) values[3], (int)((double) values[4]) );
@@ -1043,7 +1043,7 @@ implements Runnable, Component {
 
 	}
 	
-	private class DoubleRectInstruction2 extends Instruction {	
+	private class DoubleRectInstruction extends Instruction {	
 		double outerRx,outerRy,innerRx,innerRy,outerWidth,outerHeight,innerWidth,innerHeight,innerOffsetx,innerOffsety;
 
 		public void initialize(Shapes aShape, double x, double y, double size, double outerWidth, double outerHeight, double outerRx, double outerRy, double innerWidth, double innerHeight, double innerRx, double innerRy, double innerOffsetx, double innerOffsety, int color) {
@@ -1068,9 +1068,6 @@ implements Runnable, Component {
 		}
 		
 		public void draw(double aSize, boolean filled) {
-
-//			RectF outerRect = new RectF((float)outer.get(0),(float)outer.get(1),(float)outer.get(2),(float)outer.get(3));
-//			RectF innerRect = new RectF((float)inner.get(0),(float)inner.get(1),(float)inner.get(2),(float)inner.get(3));
 			//DebugInfo("******drawing relatedShape*******iStartAngle=" + iStartAngle+"   color="+color);
 			relatedShape.draw(shape, (int)aSize, filled, "",outerWidth,outerHeight,outerRx,outerRy,innerWidth,innerHeight,innerRx,innerRy,innerOffsetx,innerOffsety,color);
 			//DebugInfo("******end drawing relatedShape*******");
