@@ -12,6 +12,7 @@ import com.google.appinventor.components.annotations.SimpleFunction;
 import com.google.appinventor.components.annotations.SimpleEvent;
 import com.google.appinventor.components.runtime.ComponentContainer;
 import com.google.appinventor.components.runtime.AndroidNonvisibleComponent;
+import com.google.appinventor.components.runtime.ButtonBase;
 import com.google.appinventor.components.runtime.Canvas;
 import com.google.appinventor.components.runtime.Component;
 import com.google.appinventor.components.runtime.EventDispatcher;
@@ -24,6 +25,7 @@ import android.graphics.Paint;
 import android.graphics.Rect;
 import android.graphics.RectF;
 import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.GradientDrawable;
 import android.view.View;
 import be.naafets.canvasfun.helpers.Acceleration;
 import be.naafets.canvasfun.helpers.Directions;
@@ -32,7 +34,7 @@ import gnu.math.IntNum;
 import gnu.math.DFloNum;
 
 @DesignerComponent(
-		version = 54,
+		version = 62,
 		versionName = "1.0",
 		description = "Developed by Stefaan Vandeputte using Fast.",
 		iconName = "bubbles.png"
@@ -368,6 +370,30 @@ implements Runnable, Component {
 	public void ClearCustomColors() {
 		customColorsSet=false;
 	}
+	
+	@SimpleFunction(description = "Stelt een gradiënt achtergrond in voor een button component.") 
+	public void SetGradientBackgroundButton(ButtonBase component, int startColor, int endColor, int orientation) { 
+			DebugInfo("real class:"+component.getClass());
+		if (component.getView() instanceof View) { 
+			DebugInfo("component is view");
+			View view = (View) component.getView(); 
+			GradientDrawable gd = new GradientDrawable( GradientDrawable.Orientation.TOP_BOTTOM,new int[]{startColor, endColor}); 
+			view.setBackground(gd);
+			} 
+		else DebugInfo("component is geen view");
+		}
+
+	@SimpleFunction(description = "Stelt een gradiënt achtergrond in voor een button component.") 
+	public void SetGradientBackgroundCanvas(Canvas component, int startColor, int endColor, int orientation) { 
+			DebugInfo("real class:"+component.getClass());
+		if (component.getView() instanceof View) { 
+			DebugInfo("component is view");
+			View view = (View) component.getView(); 
+			GradientDrawable gd = new GradientDrawable( GradientDrawable.Orientation.LEFT_RIGHT,new int[]{startColor, Color.TRANSPARENT ,endColor, Color.BLUE}); 
+			view.setBackground(gd);
+			} 
+		else DebugInfo("component is geen view");
+		}
 
 	@SimpleEvent(description = "returns the error")
 	public void ErrorOccured(String error) {
@@ -765,7 +791,7 @@ implements Runnable, Component {
 										(float)(rTop*dd),
 										(float)(rRight*dd),
 										(float)(rBottom)*dd);
-			//DebugInfo("outerRect: "+outerRect.toShortString());
+			DebugInfo("outerRect: "+outerRect.toShortString());
 			rLeft = getDoubleValue(getX())+aSize*innerOffsetx;
 			rTop = getDoubleValue(getY())+aSize*innerOffsety;
 			rRight = rLeft + aSize*innerWidth;
@@ -774,7 +800,7 @@ implements Runnable, Component {
 										(float)(rTop*dd),
 										(float)(rRight*dd),
 										(float)(rBottom)*dd);
-			//DebugInfo("innerRect: "+innerRect.toShortString());
+			DebugInfo("innerRect: "+innerRect.toShortString());
 			Paint paint = new Paint();	
 			if (filled) {
 				paint.setStyle(Paint.Style.FILL);
